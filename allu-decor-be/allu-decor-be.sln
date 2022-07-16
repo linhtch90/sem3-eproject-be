@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "allu-decor-be", "allu-decor-be\allu-decor-be.csproj", "{0ECEDFD0-7957-450F-A2CA-F7F9CE07B2FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0ECEDFD0-7957-450F-A2CA-F7F9CE07B2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ECEDFD0-7957-450F-A2CA-F7F9CE07B2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ECEDFD0-7957-450F-A2CA-F7F9CE07B2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ECEDFD0-7957-450F-A2CA-F7F9CE07B2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDEA2B44-1531-483B-9600-10D60981A204}
+	EndGlobalSection
+EndGlobal

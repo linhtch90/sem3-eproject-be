@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using allu_decor_be.Models;
 
 namespace allu_decor_be.Controllers
 {
@@ -25,7 +26,7 @@ namespace allu_decor_be.Controllers
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
-        {
+        {            
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

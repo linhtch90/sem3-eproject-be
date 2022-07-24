@@ -44,6 +44,7 @@ namespace allu_decor_be
             // configure DI for application services
             services.AddScoped<IJwtUtils, JwtUtils>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDomainService, DomainService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

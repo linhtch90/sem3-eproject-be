@@ -50,6 +50,12 @@ namespace allu_decor_be
             // service for Domainservice
             services.AddScoped<IDomainserviceService, DomainserviceService>();
             services.AddScoped<IProductService, ProductService>();
+            // service for ContactSevice , FeedbackService ,Project 
+            services.AddScoped<IContactInfoService, ContactInfoService>();
+            services.AddScoped<IFeedbackSevice , FeedbackSevice>();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IFaqService, FaqService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

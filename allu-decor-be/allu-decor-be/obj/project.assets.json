@@ -1410,19 +1410,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Aptech\\Sem_3\\eProject\\source-code\\sem3-eproject-be\\allu-decor-be\\allu-decor-be\\allu-decor-be.csproj",
+      "projectUniqueName": "D:\\File_hoc\\Project__Aptech\\sem3-project-be\\allu-decor-be\\allu-decor-be\\allu-decor-be.csproj",
       "projectName": "allu-decor-be",
-      "projectPath": "D:\\Aptech\\Sem_3\\eProject\\source-code\\sem3-eproject-be\\allu-decor-be\\allu-decor-be\\allu-decor-be.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Aptech\\Sem_3\\eProject\\source-code\\sem3-eproject-be\\allu-decor-be\\allu-decor-be\\obj\\",
+      "projectPath": "D:\\File_hoc\\Project__Aptech\\sem3-project-be\\allu-decor-be\\allu-decor-be\\allu-decor-be.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "D:\\File_hoc\\Project__Aptech\\sem3-project-be\\allu-decor-be\\allu-decor-be\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1493,7 +1493,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,52 +9,51 @@ namespace allu_decor_be.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactinfoController : ControllerBase
+    public class AboutuController : ControllerBase
     {
-        private IContactinfoService _contactinfoService;
+        private IAboutuService _aboutuService;
 
-        public ContactinfoController(IContactinfoService contactinfoService)
+        public AboutuController(IAboutuService aboutuService)
         {
-            _contactinfoService = contactinfoService;
+            _aboutuService = aboutuService;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var contactInfos = _contactinfoService.GetAll();
-            return Ok(new { status = "ok", message = "", responseObject = contactInfos });
+            var aboutus = _aboutuService.GetAll();
+            return Ok(new { status = "ok", message = "", responseObject = aboutus });
         }
-
 
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
-            Contactinfo contact;
+            Aboutu aboutu;
             try
             {
-                contact = _contactinfoService.GetById(id);
+                aboutu = _aboutuService.GetById(id);
             }
             catch (KeyNotFoundException e)
             {
                 return Ok(new { status = "fail", message = e.Message, data = "" });
             }
 
-            return Ok(new { status = "ok", message = "", responseObject = contact });
+            return Ok(new { status = "ok", message = "", responseObject = aboutu });
         }
 
-        [HttpPost("CreateContactInfo")]
-        public IActionResult Create(Contactinfo contact)
+        [HttpPost("CreateAboutu")]
+        public IActionResult Create(Aboutu aboutu)
         {
-            _contactinfoService.CreateContactInfo(contact);
+            _aboutuService.CreateAboutu(aboutu);
             return Ok(new { status = "ok", message = "", responseObject = "" });
         }
 
-        [HttpPost("UpdateContactInfo")]
-        public IActionResult Update(Contactinfo contact)
+        [HttpPost("UpdateAboutu")]
+        public IActionResult Update(Aboutu aboutu)
         {
             try
             {
-                _contactinfoService.UpdateContactInfo(contact);
+                _aboutuService.UpdateAboutu(aboutu);
             }
             catch (KeyNotFoundException e)
             {
@@ -63,10 +62,10 @@ namespace allu_decor_be.Controllers
             return Ok(new { status = "ok", message = "", responseObject = "" });
         }
 
-        [HttpPost("DeleteContactInfo")]
+        [HttpPost("DeleteAboutu")]
         public IActionResult Delete(IdRequest idRequest)
         {
-            _contactinfoService.DeleteContactInfo(idRequest.Id);
+            _aboutuService.DeleteAboutu(idRequest.Id);
             return Ok(new { status = "ok", message = "", responseObject = "" });
         }
     }

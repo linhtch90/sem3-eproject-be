@@ -57,6 +57,8 @@ namespace allu_decor_be
             //service for CustomerReviewService
             services.AddScoped<ICustomerReviewService, CustomerReviewService>();
             services.AddScoped<IAboutuService, AboutuService>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<IInvoiceitemService, InvoiceitemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

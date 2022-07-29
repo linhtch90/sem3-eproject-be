@@ -68,9 +68,11 @@ namespace allu_decor_be.Services
             }
 
             user.Id = Guid.NewGuid().ToString();
+            user.Role = "Client";
 
             string hashedPassword = BCryptNet.HashPassword(user.Password);
             user.Password = hashedPassword;
+
             _context.Users.Add(user);
             _context.SaveChanges();            
         }

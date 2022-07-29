@@ -18,6 +18,7 @@ namespace allu_decor_be.Controllers
             _faqService = faqService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {

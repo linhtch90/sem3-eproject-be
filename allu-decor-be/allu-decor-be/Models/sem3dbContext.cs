@@ -21,7 +21,6 @@ namespace allu_decor_be.Models
         public virtual DbSet<Contactinfo> Contactinfos { get; set; }
         public virtual DbSet<Customerreview> Customerreviews { get; set; }
         public virtual DbSet<Domain> Domains { get; set; }
-        public virtual DbSet<Domainservice> Domainservices { get; set; }
         public virtual DbSet<Faq> Faqs { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
@@ -131,37 +130,6 @@ namespace allu_decor_be.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("name");
-            });
-
-            modelBuilder.Entity<Domainservice>(entity =>
-            {
-                entity.ToTable("domainservice");
-
-                entity.Property(e => e.Id)
-                    .HasMaxLength(50)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Domainid)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("domainid");
-
-                entity.Property(e => e.Serviceid)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("serviceid");
-
-                entity.HasOne(d => d.Domain)
-                    .WithMany(p => p.Domainservices)
-                    .HasForeignKey(d => d.Domainid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("domainservice_fk");
-
-                entity.HasOne(d => d.Service)
-                    .WithMany(p => p.Domainservices)
-                    .HasForeignKey(d => d.Serviceid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("domainservice_fk_1");
             });
 
             modelBuilder.Entity<Faq>(entity =>
@@ -300,10 +268,15 @@ namespace allu_decor_be.Models
                     .IsRequired()
                     .HasColumnName("description");
 
-                entity.Property(e => e.Domainserviceid)
+                entity.Property(e => e.Domainid)
                     .IsRequired()
                     .HasMaxLength(50)
-                    .HasColumnName("domainserviceid");
+                    .HasColumnName("domainid");
+
+                entity.Property(e => e.Serviceid)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("serviceid");
 
                 entity.Property(e => e.Image)
                     .IsRequired()
@@ -318,11 +291,17 @@ namespace allu_decor_be.Models
                     .HasPrecision(8, 2)
                     .HasColumnName("price");
 
-                entity.HasOne(d => d.Domainservice)
+                entity.HasOne(d => d.Domain)
                     .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.Domainserviceid)
+                    .HasForeignKey(d => d.Domainid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("products_fk");
+
+                entity.HasOne(d => d.Service)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.Serviceid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("products_fk_1");
             });
 
             modelBuilder.Entity<Project>(entity =>

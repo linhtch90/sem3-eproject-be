@@ -47,8 +47,6 @@ namespace allu_decor_be
             // service for Domain
             services.AddScoped<IDomainService, DomainService>();
             services.AddScoped<IServiceService, ServiceService>();
-            // service for Domainservice
-            services.AddScoped<IDomainserviceService, DomainserviceService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IFeedbackSevice, FeedbackService>();
             services.AddScoped<IFaqService, FaqService>();

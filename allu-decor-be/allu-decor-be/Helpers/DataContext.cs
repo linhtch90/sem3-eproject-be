@@ -11,7 +11,6 @@ namespace allu_decor_be.Helpers
         public virtual DbSet<Contactinfo> Contactinfos { get; set; }
         public virtual DbSet<Customerreview> Customerreviews { get; set; }
         public virtual DbSet<Domain> Domains { get; set; }
-        public virtual DbSet<Domainservice> Domainservices { get; set; }
         public virtual DbSet<Faq> Faqs { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }

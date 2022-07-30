@@ -57,11 +57,13 @@ namespace allu_decor_be.Services
         public void UpdateProduct(Product product)
         {
             Product foundProduct = getProductById(product.Id);
-            foundProduct.Domainserviceid = product.Domainserviceid;
             foundProduct.Name = product.Name;
             foundProduct.Image = product.Image;
             foundProduct.Price = product.Price;
             foundProduct.Description = product.Description;
+            foundProduct.Domainid = product.Domainid;
+            foundProduct.Serviceid = product.Serviceid;
+
             _context.Products.Update(foundProduct);
             _context.SaveChanges();
         }

@@ -60,7 +60,10 @@ namespace allu_decor_be.Services
             foundProject.Name = project.Name;
             foundProject.Status = project.Status;
             foundProject.Description = project.Description;
-            foundProject.Image = project.Image;
+            if (project.Image != null)
+            {
+                foundProject.Image = project.Image;
+            }
 
             _context.Projects.Update(foundProject);
             _context.SaveChanges();

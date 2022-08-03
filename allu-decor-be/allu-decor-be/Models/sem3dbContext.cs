@@ -302,6 +302,7 @@ namespace allu_decor_be.Models
                     .HasForeignKey(d => d.Serviceid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("products_fk_1");
+
             });
 
             modelBuilder.Entity<Project>(entity =>

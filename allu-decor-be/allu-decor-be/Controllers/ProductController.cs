@@ -1,10 +1,14 @@
-﻿using allu_decor_be.Models;
+﻿using allu_decor_be.Authorization;
+using allu_decor_be.Models;
 using allu_decor_be.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace allu_decor_be.Controllers
 {
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductController : ControllerBase
     {
         private IProductService _productService;
@@ -14,11 +18,12 @@ namespace allu_decor_be.Controllers
             _productService = productService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {
-            var domains = _productService.GetAll();
-            return Ok(new { status = "ok", message = "", responseObject = domains });
+            var products = _productService.GetAll();
+            return Ok(new { status = "ok", message = "", responseObject = products });
         }
 
         [HttpGet("{id}")]

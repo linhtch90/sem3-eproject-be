@@ -1,9 +1,11 @@
 ﻿using allu_decor_be.Authorization;
 using allu_decor_be.Helpers;
 using allu_decor_be.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace allu_decor_be.Services
 {
@@ -57,12 +59,15 @@ namespace allu_decor_be.Services
         public void UpdateProduct(Product product)
         {
             Product foundProduct = getProductById(product.Id);
-            foundProduct.Name = product.Name;
-            foundProduct.Image = product.Image;
+            foundProduct.Name = product.Name;            
             foundProduct.Price = product.Price;
             foundProduct.Description = product.Description;
             foundProduct.Domainid = product.Domainid;
             foundProduct.Serviceid = product.Serviceid;
+            if (product.Image != null)
+            {
+                foundProduct.Image = product.Image;
+            }
 
             _context.Products.Update(foundProduct);
             _context.SaveChanges();

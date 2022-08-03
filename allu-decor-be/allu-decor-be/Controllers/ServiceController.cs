@@ -17,6 +17,7 @@ namespace allu_decor_be.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {

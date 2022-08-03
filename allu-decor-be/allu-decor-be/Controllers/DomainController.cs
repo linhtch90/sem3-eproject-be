@@ -19,6 +19,7 @@ namespace allu_decor_be.Controllers
             _domainService = domainService;
         }
                 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {

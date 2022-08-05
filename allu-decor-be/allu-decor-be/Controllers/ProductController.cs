@@ -26,6 +26,7 @@ namespace allu_decor_be.Controllers
             return Ok(new { status = "ok", message = "", responseObject = products });
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {

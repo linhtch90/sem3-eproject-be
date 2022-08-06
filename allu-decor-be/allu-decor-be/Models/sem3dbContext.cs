@@ -58,7 +58,7 @@ namespace allu_decor_be.Models
 
             modelBuilder.Entity<Contactinfo>(entity =>
             {
-                entity.ToTable("contactinfo");
+                entity.ToTable("contactinfos");
 
                 entity.Property(e => e.Id)
                     .HasMaxLength(50)
@@ -221,7 +221,7 @@ namespace allu_decor_be.Models
 
             modelBuilder.Entity<Invoiceitem>(entity =>
             {
-                entity.ToTable("invoiceitem");
+                entity.ToTable("invoiceitems");
 
                 entity.Property(e => e.Id)
                     .HasMaxLength(50)

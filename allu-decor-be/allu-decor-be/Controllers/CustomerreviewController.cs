@@ -19,6 +19,7 @@ namespace allu_decor_be.Controllers
             _customerReviewService = customerReviewService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {

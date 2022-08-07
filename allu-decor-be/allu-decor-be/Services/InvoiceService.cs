@@ -11,7 +11,7 @@ namespace allu_decor_be.Services
     {
         IEnumerable<Invoice> GetAll();
         Invoice GetById(string id);
-        void CreateInvoice(Invoice invoice);
+        IdRequest CreateInvoice(Invoice invoice);
         void UpdateInvoice(Invoice invoice);
         void DeleteInvoice(string id);
     }
@@ -30,11 +30,12 @@ namespace allu_decor_be.Services
             _jwtUtils = jwtUtils;
             _appSettings = appSettings.Value;
         }
-        public void CreateInvoice(Invoice invoice)
+        public IdRequest CreateInvoice(Invoice invoice)
         {
             invoice.Id = Guid.NewGuid().ToString();
             _context.Invoices.Add(invoice);
             _context.SaveChanges();
+            return new IdRequest { Id = invoice.Id };
         }
 
         public void DeleteInvoice(string id)

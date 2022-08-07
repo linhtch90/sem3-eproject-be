@@ -44,8 +44,8 @@ namespace allu_decor_be.Controllers
         [HttpPost("CreateInvoice")]
         public IActionResult Create(Invoice invoice)
         {
-            _invoiceService.CreateInvoice(invoice);
-            return Ok(new { status = "ok", message = "", responseObject = "" });
+            IdRequest invoiceId = _invoiceService.CreateInvoice(invoice);
+            return Ok(new { status = "ok", message = "", responseObject = invoiceId });
         }
 
         [HttpPost("UpdateInvoice")]

@@ -12,5 +12,6 @@ namespace allu_decor_be.Models
         public string Lastname { get; set; }
         public string Company { get; set; }
         public string Content { get; set; }
+        public string Image { get; set; }
     }
 }

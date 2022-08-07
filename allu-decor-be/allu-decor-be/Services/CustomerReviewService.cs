@@ -57,6 +57,10 @@ namespace allu_decor_be.Services
             foundCustomerreview.Lastname = customerreview.Lastname;
             foundCustomerreview.Company = customerreview.Company;
             foundCustomerreview.Content = customerreview.Content;
+            if (customerreview.Image != null)
+            {
+                foundCustomerreview.Image = customerreview.Image;
+            }
             _context.Customerreviews.Update(foundCustomerreview);
             _context.SaveChanges();
         }

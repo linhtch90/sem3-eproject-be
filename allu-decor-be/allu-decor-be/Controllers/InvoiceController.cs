@@ -25,6 +25,13 @@ namespace allu_decor_be.Controllers
             return Ok(new { status = "ok", message = "", responseObject = invoices });
         }
 
+        [HttpPost("ByUserId")]
+        public IActionResult GetAllByUserId(IdRequest idRequest)
+        {
+            var invoices = _invoiceService.GetAllByUserId(idRequest.Id);
+            return Ok(new { status = "ok", message = "", responseObject = invoices });
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {

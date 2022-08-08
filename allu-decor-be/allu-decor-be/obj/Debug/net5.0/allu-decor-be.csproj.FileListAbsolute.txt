@@ -44,3 +44,4 @@ D:\Aptech\Sem_3\eProject\source-code\sem3-eproject-be\allu-decor-be\allu-decor-b
 D:\Aptech\Sem_3\eProject\source-code\sem3-eproject-be\allu-decor-be\allu-decor-be\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Aptech\Sem_3\eProject\source-code\sem3-eproject-be\allu-decor-be\allu-decor-be\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\Aptech\Sem_3\eProject\source-code\sem3-eproject-be\allu-decor-be\allu-decor-be\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Aptech\Sem_3\eProject\source-code\sem3-eproject-be\allu-decor-be\allu-decor-be\bin\Debug\net5.0\Newtonsoft.Json.dll

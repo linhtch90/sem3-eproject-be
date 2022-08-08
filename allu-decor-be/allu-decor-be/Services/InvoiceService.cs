@@ -4,12 +4,14 @@ using allu_decor_be.Models;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace allu_decor_be.Services
 {
     public interface IInvoiceService
     {
         IEnumerable<Invoice> GetAll();
+        IEnumerable<Invoice> GetAllByUserId(string id);
         Invoice GetById(string id);
         IdRequest CreateInvoice(Invoice invoice);
         void UpdateInvoice(Invoice invoice);
@@ -47,7 +49,24 @@ namespace allu_decor_be.Services
 
         public IEnumerable<Invoice> GetAll()
         {
-            return _context.Invoices;
+            var invoices = _context.Invoices.ToList();
+            foreach (var invoice in invoices)
+            {
+                invoice.User = null;
+                invoice.Invoiceitems = null;
+            }
+            return invoices;
+        }
+
+        public IEnumerable<Invoice> GetAllByUserId(string id)
+        {
+            var invoices = _context.Invoices.Where(item => item.Userid == id).ToList();
+            foreach (var invoice in invoices)
+            {
+                invoice.User = null;
+                invoice.Invoiceitems = null;
+            }
+            return invoices;
         }
 
         public Invoice GetById(string id)

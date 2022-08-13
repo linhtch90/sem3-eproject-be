@@ -38,12 +38,12 @@ namespace allu_decor_be.Controllers
         public IActionResult GetById(string id)
         {
             // only admins can access other user records
-            var currentUser = (User)HttpContext.Items["User"];
-            if (id != currentUser.Id && currentUser.Role != "Admin")
-                return Unauthorized(new { message = "Unauthorized" });
+            //var currentUser = (User)HttpContext.Items["User"];
+            //if (id != currentUser.Id && currentUser.Role != "Admin")
+            //    return Unauthorized(new { message = "Unauthorized" });
 
             var user = _userService.GetById(id);
-            return Ok(user);
+            return Ok(new { status = "ok", message = "", responseObject = user });
         }
 
         [AllowAnonymous]

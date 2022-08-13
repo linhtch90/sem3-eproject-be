@@ -2,6 +2,7 @@
 using allu_decor_be.Models;
 using allu_decor_be.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace allu_decor_be.Controllers
 {
@@ -30,8 +31,8 @@ namespace allu_decor_be.Controllers
         public IActionResult GetAll()
         {
             var users = _userService.GetAll();
-            return Ok(users);
-        }
+            return Ok(new { status = "ok", message = "", responseObject = users });
+        }   
 
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
@@ -46,11 +47,62 @@ namespace allu_decor_be.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("CreateUser")]
         public IActionResult Create(User user)
         {
             _userService.CreateUser(user);
             return Ok(new { message = "User created"});
         }
+
+        [HttpPost("UpdateUserWithoutPassword")]
+        public IActionResult UpdateUserWhioutPassword(User user)
+        {
+            try
+            {
+                _userService.UpdateUserWithoutPassword(user);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return Ok(new { status = "fail", message = e.Message, responseObject = "" });
+            }
+            return Ok(new { status = "ok", message = "", responseObject = "" });
+        }
+
+        [HttpPost("UpdateUser")]
+        public IActionResult UpdateUser(User user)
+        {
+            try
+            {
+                _userService.UpdateUser(user);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return Ok(new { status = "fail", message = e.Message, responseObject = "" });
+            }
+            return Ok(new { status = "ok", message = "", responseObject = "" });
+        }
+
+        [HttpPost("ChangePassword")]
+        public IActionResult ChangePassword(User user)
+        {
+            try
+            {
+                _userService.ChangePassword(user);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return Ok(new { status = "fail", message = e.Message, responseObject = "" });
+            }
+            return Ok(new { status = "ok", message = "", responseObject = "" });
+        }
+
+        [HttpPost("DeleteUser")]
+        public IActionResult DeleteUser(IdRequest idRequest)
+        {
+            _userService.DeleteUser(idRequest.Id);
+            return Ok(new { status = "ok", message = "", responseObject = "" });
+        }
+
+
     }
 }

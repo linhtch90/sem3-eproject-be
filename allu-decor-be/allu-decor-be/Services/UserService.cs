@@ -15,6 +15,10 @@ namespace allu_decor_be.Services
         IEnumerable<User> GetAll();
         User GetById(string id);
         void CreateUser(User user);
+        void UpdateUser(User user);
+        void ChangePassword(User user);
+        void UpdateUserWithoutPassword(User user);
+        void DeleteUser(string id);
     }
 
     public class UserService : IUserService
@@ -75,6 +79,52 @@ namespace allu_decor_be.Services
 
             _context.Users.Add(user);
             _context.SaveChanges();            
+        }
+
+        public void UpdateUserWithoutPassword(User user)
+        {
+            User foundUser = GetById(user.Id);
+            foundUser.Firstname = user.Firstname;
+            foundUser.Lastname = user.Lastname;
+            foundUser.Address = user.Address;
+            foundUser.District = user.District;
+            foundUser.City = user.City;
+            foundUser.Phone = user.Phone;
+            foundUser.Email = user.Email;
+            _context.Users.Update(foundUser);
+            _context.SaveChanges();
+        }
+        public void UpdateUser(User user)
+        {
+            User foundUser = GetById(user.Id);
+            foundUser.Firstname = user.Firstname;
+            foundUser.Lastname = user.Lastname;
+            foundUser.Address = user.Address;
+            foundUser.District = user.District;
+            foundUser.City = user.City;
+            foundUser.Phone = user.Phone;            
+            foundUser.Email = user.Email;
+            string hashedPassword = BCryptNet.HashPassword(user.Password);
+            foundUser.Password = hashedPassword;
+            _context.Users.Update(foundUser);
+            _context.SaveChanges();
+        }
+
+        public void ChangePassword(User user)
+        {
+            User foundUser = GetById(user.Id);
+            foundUser.Email = user.Email;
+            string hashedPassword = BCryptNet.HashPassword(user.Password);
+            foundUser.Password = hashedPassword;
+            _context.Users.Update(foundUser);
+            _context.SaveChanges();
+        }
+
+        public void DeleteUser(string id)
+        {
+            User user = GetById(id);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
         }
     }
 }

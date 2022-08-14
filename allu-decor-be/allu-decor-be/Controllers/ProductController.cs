@@ -35,6 +35,14 @@ namespace allu_decor_be.Controllers
         }
 
         [AllowAnonymous]
+        [HttpPost("FilterByDomainId")]
+        public IActionResult GetAllByDomainId(IdRequest id)
+        {
+            var products = _productService.GetAllByDomainId(id.Id);
+            return Ok(new { status = "ok", message = "", responseObject = products });
+        }
+
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {

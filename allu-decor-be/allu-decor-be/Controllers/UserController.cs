@@ -22,7 +22,16 @@ namespace allu_decor_be.Controllers
         [HttpPost("[action]")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = _userService.Authenticate(model);
+            AuthenticateResponse response;
+            try
+            {
+                response = _userService.Authenticate(model);
+            }
+            catch
+            {
+                return Ok(new { status = "fail", message = "", responseObject = "" });
+            }
+            
             return Ok(response);
         }
 

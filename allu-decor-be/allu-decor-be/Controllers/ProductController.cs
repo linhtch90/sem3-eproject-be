@@ -27,6 +27,14 @@ namespace allu_decor_be.Controllers
         }
 
         [AllowAnonymous]
+        [HttpPost("SearchByName")]
+        public IActionResult GetAllByName(NameRequest name)
+        {
+            var products = _productService.GetAllByName(name.Name);
+            return Ok(new { status = "ok", message = "", responseObject = products });
+        }
+
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {

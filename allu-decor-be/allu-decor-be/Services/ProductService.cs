@@ -12,6 +12,7 @@ namespace allu_decor_be.Services
     public interface IProductService
     {
         IEnumerable<Product> GetAll();
+        IEnumerable<Product> GetAllByName(string name);
         Product GetById(string id);
         void CreateProduct(Product product);
         void UpdateProduct(Product product);
@@ -49,6 +50,11 @@ namespace allu_decor_be.Services
         public IEnumerable<Product> GetAll()
         {
             return _context.Products;
+        }
+
+        public IEnumerable<Product> GetAllByName(string name)
+        {
+            return _context.Products.Where(p => EF.Functions.ILike(p.Name, $"%{name}%")).ToList();
         }
 
         public Product GetById(string id)

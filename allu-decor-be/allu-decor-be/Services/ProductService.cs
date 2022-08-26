@@ -14,6 +14,7 @@ namespace allu_decor_be.Services
         IEnumerable<Product> GetAll();
         IEnumerable<Product> GetAllByName(string name);
         IEnumerable<Product> GetAllByDomainId(string id);
+        IEnumerable<Product> GetAllByServiceId(string id);
         Product GetById(string id);
         void CreateProduct(Product product);
         void UpdateProduct(Product product);
@@ -61,6 +62,11 @@ namespace allu_decor_be.Services
         public IEnumerable<Product> GetAllByDomainId(string id)
         {
             return _context.Products.Where(p => p.Domainid == id).ToList();
+        }
+
+        public IEnumerable<Product> GetAllByServiceId(string id)
+        {
+            return _context.Products.Where(p => p.Serviceid == id).ToList();
         }
 
         public Product GetById(string id)

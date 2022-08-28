@@ -23,5 +23,6 @@ namespace allu_decor_be.Models
         public virtual Domain Domain { get; set; }
         public virtual Service Service { get; set; }
         public virtual ICollection<Invoiceitem> Invoiceitems { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

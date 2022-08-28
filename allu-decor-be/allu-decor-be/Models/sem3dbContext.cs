@@ -161,31 +161,33 @@ namespace allu_decor_be.Models
                     .IsRequired()
                     .HasColumnName("content");
 
-                entity.Property(e => e.CreateAt).HasColumnName("createAt");
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("email");
-
-                entity.Property(e => e.Firstname)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("firstname");
-
-                entity.Property(e => e.Lastname)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("lastname");
+                entity.Property(e => e.Createat).HasColumnName("createat");
 
                 entity.Property(e => e.UserId)
                     .HasMaxLength(50)
                     .HasColumnName("userId");
 
+                entity.Property(e => e.ProductId)
+                    .HasMaxLength(50)
+                    .HasColumnName("productId");
+
+                entity.Property(e => e.Firstname)
+                    .HasMaxLength(50)
+                    .HasColumnName("firstname");
+
+                entity.Property(e => e.Lastname)
+                    .HasMaxLength(50)
+                    .HasColumnName("lastname");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Feedbacks)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("feedbacks_fk");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Feedbacks)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("feedbacks_fk_product");
             });
 
             modelBuilder.Entity<Invoice>(entity =>

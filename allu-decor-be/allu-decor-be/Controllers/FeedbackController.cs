@@ -26,6 +26,14 @@ namespace allu_decor_be.Controllers
             return Ok(new { status = "ok", message = "", responseObject = feedback });
         }
 
+        [AllowAnonymous]
+        [HttpPost("GetAllByProductId")]
+        public IActionResult GetAllByProductId(IdRequest idRequest)
+        {
+            var feedback = _feedbackService.GetAllByProductId(idRequest.Id);
+            return Ok(new { status = "ok", message = "", responseObject = feedback });
+        }
+
 
         [HttpGet("{id}")]
         public IActionResult GetById(string id)

@@ -4,12 +4,14 @@ using allu_decor_be.Models;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace allu_decor_be.Services
 {
     public interface IFeedbackSevice
     {
         IEnumerable<Feedback> GetAll();
+        IEnumerable<Feedback> GetAllByProductId(string id);
         Feedback GetById(string id);
         void CreateFeedback(Feedback feedback);
         void UpdateFeedback(Feedback feedback);
@@ -50,6 +52,18 @@ namespace allu_decor_be.Services
         {
             return _context.Feedbacks;
         }
+
+        public IEnumerable<Feedback> GetAllByProductId(string id)
+        {
+            var feedbacks = _context.Feedbacks.Where(feedback => feedback.ProductId == id).OrderByDescending(feedback => feedback.Createat);
+            foreach(var feedback in feedbacks)
+            {
+                feedback.Product = null;
+                feedback.User = null;
+            }
+            return feedbacks;
+        }
+
 
         public Feedback GetById(string id)
         {

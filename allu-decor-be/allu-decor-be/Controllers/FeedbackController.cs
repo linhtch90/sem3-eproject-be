@@ -19,6 +19,7 @@ namespace allu_decor_be.Controllers
             _feedbackService = feedbackService;
         }
 
+        [Authorize("Admin")]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -72,6 +73,7 @@ namespace allu_decor_be.Controllers
             return Ok(new { status = "ok", message = "", responseObject = "" });
         }
 
+        [Authorize("Admin")]
         [HttpPost("DeleteFeedback")]
         public IActionResult Delete(IdRequest idRequest)
         {

@@ -50,7 +50,13 @@ namespace allu_decor_be.Services
 
         public IEnumerable<Feedback> GetAll()
         {
-            return _context.Feedbacks;
+            var feedbacks = _context.Feedbacks.OrderByDescending(feedback => feedback.Createat);
+            foreach (var feedback in feedbacks)
+            {
+                feedback.Product = null;
+                feedback.User = null;
+            }
+            return feedbacks;
         }
 
         public IEnumerable<Feedback> GetAllByProductId(string id)
